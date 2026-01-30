@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gradient-to-b from-sky-50 via-rose-50 to-amber-50 text-slate-800 antialiased;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Rounded',
+    'Nunito', 'Quicksand', 'Segoe UI Rounded', sans-serif;
+}
+
+.dark body {
+  @apply bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100;
+}
+
+/* Soft container shadow used across the page */
+.soft-card {
+  @apply bg-white/80 backdrop-blur-sm rounded-3xl shadow-[0_18px_45px_rgba(15,23,42,0.09)];
+}
+
+.dark .soft-card {
+  @apply bg-slate-900/70 backdrop-blur-md shadow-[0_18px_45px_rgba(15,23,42,0.85)] ring-1 ring-white/5;
+}
+
+/* Gently floating decorative elements */
+@keyframes float-slow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float-slower {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-16px) translateX(6px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slower 13s ease-in-out infinite;
+}
+
+/* Simple handwritten-style note effect */
+.note-paper {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(148, 163, 184, 0.12) 1px,
+      transparent 1px
+    );
+  background-size: 100% 22px;
+}
+
+/* Masonry-like gallery columns helper */
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .masonry {
+    column-count: 2;
+    column-gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+    column-gap: 1.5rem;
+  }
+}
